@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a routerLink="../documentUpload" routerLinkActive="active" class="nav-link">{{communicationService.displayName}}</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="../login" routerLinkActive="active" class="nav-link">Sign Out</a>
+        </li>
+    </ul>
+</nav>
+<h2></h2>
+
+<div class="container">
+    <div class="row mt-5">
+        <br>
+        <h3 class="display-6">Please upload your documents</h3>
+        <br>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="offset-2">
+                <label for="formFile" class="form-label">Browse File</label>
+                <input class="form-control" type="file" id="documentObj" name="documentObj" (change)="upload($event)">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="documentList" class="form-label">Document Type</label>
+            <input class="form-control" list="documentListType" id="documentList"
+                placeholder="Type to search your document type..." required [(ngModel)]="document.documentTyp"
+                name="documentTyp">
+            <datalist id="documentListType">
+                <option value="Identity Proof">
+                <option value="Addresss Proof">
+                <option value="Date Of Birth Proof">
+                <option value="Photograph">
+                <option value="PAN Card">
+            </datalist>
+        </div>
+        <div class="col-md-4 mt-1 pt-4">
+            <button class="btn btn-primary btn-block mb-4" type="submit">Upload</button>
+        </div>
+    </div>
+    </form>
+</div>
